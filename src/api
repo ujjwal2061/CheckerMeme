@@ -1,0 +1,15 @@
+import { Client } from "twitter-api-sdk";
+
+async function main() {
+  const client = new Client(process.env.BEARER_TOKEN);
+
+  const response = await client.users.findUsersById({
+    "user.fields": [
+        "name"
+    ]
+  });
+  
+  console.log("response", JSON.stringify(response, null, 2));
+}
+  
+main();
